@@ -3,10 +3,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <AppBar
-      position='static'
-      sx={{ backgroundColor: '#fffcf9', color: 'black', fontFamily: 'cursive' }}
-    >
+    <AppBar position='static' sx={{ fontFamily: 'cursive' }}>
       <Toolbar disableGutters>
         <Typography variant='h6' component='a' href='/' marginLeft='40px' fontFamily='serif'>
           Kengo Sonoda
