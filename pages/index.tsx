@@ -1,18 +1,6 @@
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 import useTranslation from 'next-translate/useTranslation';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import { CardLink } from 'components/card-link/card-link';
 import Layout from 'components/layout';
 
 export default function Home() {
@@ -25,30 +13,14 @@ export default function Home() {
         </Box>
         <Grid container direction='row' alignContent='center' justifyContent='center'>
           <Grid item sx={{ margin: '80px 100px' }}>
-            <Card sx={{ maxWidth: '300px', height: '400px' }}>
-              <Link href={'/work'}>
-                <CardMedia component='img' height='180px' image='/images/test.jpg' alt='work' />
-                <CardContent sx={{ height: '220px' }}>
-                  <Typography variant='h5'>About me</Typography>
-                  <Typography color='text.secondary'>
-                    [!]this card is for \about for description
-                  </Typography>
-                </CardContent>
-              </Link>
-            </Card>
+            <CardLink href='/about' imagePath='/images/test.jpg' title='About'>
+              [!]this card is for /about for description
+            </CardLink>
           </Grid>
           <Grid item sx={{ margin: '80px 100px' }}>
-            <Card sx={{ maxWidth: '300px', height: '400px' }}>
-              <Link href={'/work'}>
-                <CardMedia component='img' height='180px' image='/images/test.jpg' alt='work' />
-                <CardContent sx={{ height: '220px' }}>
-                  <Typography variant='h5'>My Work</Typography>
-                  <Typography color='text.secondary'>
-                    [!]this card is for \work for description
-                  </Typography>
-                </CardContent>
-              </Link>
-            </Card>
+            <CardLink href='/work' imagePath='/images/test.jpg' title='Work'>
+              [!]this card is for /work for description
+            </CardLink>
           </Grid>
         </Grid>
       </Container>
