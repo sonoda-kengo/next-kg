@@ -1,5 +1,7 @@
 {
   "Japanese": "Japanese",
   "English": "English",
-  "home_msg": "In April 2021,<br> I started my carrer as a software engineer.<br> I live in Tokyo now.<br> I will work abroad."
+  "home_msg": "In April 2021,<br> I started my carrer as a software engineer.<br> I live in Tokyo now.<br> I will work abroad.",
+  "card_about_msg": "I am in Japan. My major was 'Peptide engineering', but I was intern at a software company after studying alone programming. After graduating, I started my carrer as a software engineer",
+  "card_work_msg": "I am software engineer."
 }

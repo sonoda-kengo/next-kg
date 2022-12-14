@@ -14,12 +14,12 @@ export default function Home() {
         <Grid container direction='row' alignContent='center' justifyContent='center'>
           <Grid item sx={{ margin: '80px 100px' }}>
             <CardLink href='/about' imagePath='/images/test.jpg' title='About'>
-              [!]this card is for /about for description
+              <Typography>{t('card_about_msg')}</Typography>
             </CardLink>
           </Grid>
           <Grid item sx={{ margin: '80px 100px' }}>
             <CardLink href='/work' imagePath='/images/test.jpg' title='Work'>
-              [!]this card is for /work for description
+              <Typography>{t('card_work_msg')}</Typography>
             </CardLink>
           </Grid>
         </Grid>
