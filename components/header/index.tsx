@@ -5,16 +5,16 @@ export default function Header() {
   return (
     <AppBar position='static' sx={{ fontFamily: 'cursive' }} color='primary'>
       <Toolbar disableGutters>
-        <Typography variant='h6' component='a' href='/' marginLeft='40px' fontFamily='serif'>
+        <Typography variant='h6' component='a' href='/' marginLeft='1rem' fontFamily='serif'>
           Kengo Sonoda
         </Typography>
-        <Box margin='0 40px 0 auto'>
+        <Box marginLeft='auto'>
           <Link href='/about'>About</Link>
         </Box>
-        <Box margin='0 40px'>
+        <Box marginLeft='1rem'>
           <Link href='/work'>Work</Link>
         </Box>
-        <Box margin='0 40px'>
+        <Box margin='0 1rem'>
           <Link href='/contact'>Contact</Link>
         </Box>
       </Toolbar>
