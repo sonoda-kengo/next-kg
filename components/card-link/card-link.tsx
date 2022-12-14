@@ -11,7 +11,7 @@ interface ICardLinkProps {
 
 export const CardLink = ({ href, title, imagePath, children }: ICardLinkProps) => {
   return (
-    <Card sx={{ maxWidth: '300px', height: '400px' }}>
+    <Card sx={{ width: '280px', height: '400px' }}>
       <Link href={href}>
         <CardMedia component='img' height='180px' image={imagePath} alt={title} />
         <CardContent sx={{ height: '220px' }}>
