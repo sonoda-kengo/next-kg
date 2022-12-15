@@ -9,17 +9,18 @@ export default function Home() {
     <Layout>
       <Container>
         <Typography variant='h5'>
-          <div dangerouslySetInnerHTML={{ __html: t('home_msg') }} />
+          {/* <div dangerouslySetInnerHTML={{ __html: t('home_msg') }} /> */}
+          home_msg
         </Typography>
         <Grid container direction='row' alignContent='center' justifyContent='center'>
           <Grid item sx={{ margin: '80px 100px' }}>
             <CardLink href='/about' imagePath='/images/test.jpg' title='About'>
-              <Typography>{t('card_about_msg')}</Typography>
+              {t('card_about_msg')}
             </CardLink>
           </Grid>
           <Grid item sx={{ margin: '80px 100px' }}>
             <CardLink href='/work' imagePath='/images/test.jpg' title='Work'>
-              <Typography>{t('card_work_msg')}</Typography>
+              {t('card_work_msg')}
             </CardLink>
           </Grid>
         </Grid>
