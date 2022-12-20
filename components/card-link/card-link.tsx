@@ -15,7 +15,7 @@ export const CardLink = ({ href, title, imagePath, children }: ICardLinkProps) =
       <Link href={href}>
         <CardMedia component='img' height='180px' image={imagePath} alt={title} />
         <CardContent sx={{ height: '220px' }}>
-          <Typography sx={{ fontFamily: 'cursive' }} variant='h5'>
+          <Typography sx={{ letterSpacing: 3 }} variant='h5'>
             {title}
           </Typography>
           <Typography color='text.secondary'>{children}</Typography>
