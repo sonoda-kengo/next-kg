@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <AppBar position='static' sx={{ fontFamily: 'cursive' }} color='primary'>
+    <AppBar position='static' sx={{ letterSpacing: 2 }} color='primary'>
       <Toolbar disableGutters>
-        <Typography variant='h6' component='a' href='/' marginLeft='1rem' fontFamily='serif'>
+        <Typography variant='h6' component='a' href='/' marginLeft='1rem'>
           Kengo Sonoda
         </Typography>
         <Box marginLeft='auto'>
