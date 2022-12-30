@@ -1,20 +1,7 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  List,
-  ListItem,
-  ListSubheader,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import useTranslation from 'next-translate/useTranslation';
-import Image from 'next/image';
-import { CardLink } from 'components/card-link/card-link';
 import { HoverIcon } from 'components/icon/hover-icon';
 import Layout from 'components/layout';
-import { TypoUnderLine } from 'components/typography/typo-underline';
 
 export default function About() {
   const { t } = useTranslation('common');
@@ -32,25 +19,33 @@ export default function About() {
           <Typography>Langage</Typography>
           <Grid container>
             <Grid item>
-              <HoverIcon src='/logo/language/html-5.svg' alt='html-5' />
+              <HoverIcon src='/logo/language/html-5.svg' title='HTML-5' subTitle='4 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/language/css-3.svg' alt='css-3' />
+              <HoverIcon src='/logo/language/css-3.svg' title='CSS-3' subTitle='4 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/language/javascript.svg' alt='jsvascript' />
+              <HoverIcon
+                src='/logo/language/javascript.svg'
+                title='JavaScript'
+                subTitle='3 years'
+              />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/language/typescript.svg' alt='typescript' />
+              <HoverIcon
+                src='/logo/language/typescript.svg'
+                title='TypeScript'
+                subTitle='1 years'
+              />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/language/python.svg' alt='python' />
+              <HoverIcon src='/logo/language/python.svg' title='python' subTitle='2 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/language/csharp.svg' alt='c#' />
+              <HoverIcon src='/logo/language/csharp.svg' title='C#' subTitle='2 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/language/php.svg' alt='php' />
+              <HoverIcon src='/logo/language/php.svg' title='PHP' subTitle='1 years' />
             </Grid>
           </Grid>
         </Box>
@@ -58,22 +53,22 @@ export default function About() {
           <Typography>Framework</Typography>
           <Grid container>
             <Grid item>
-              <HoverIcon src='/logo/framework/react.svg' alt='react' />
+              <HoverIcon src='/logo/framework/react.svg' title='React' subTitle='1 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/framework/next.svg' alt='next' />
+              <HoverIcon src='/logo/framework/next.svg' title='Next' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/framework/nodejs.svg' alt='node' />
+              <HoverIcon src='/logo/framework/nodejs.svg' title='Node' subTitle='1 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/framework/threejs.svg' alt='three' />
+              <HoverIcon src='/logo/framework/threejs.svg' title='Three' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/framework/express.svg' alt='express' />
+              <HoverIcon src='/logo/framework/express.svg' title='Express' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/framework/laravel.svg' alt='laravel' />
+              <HoverIcon src='/logo/framework/laravel.svg' title='Laravel' subTitle='0.5 years' />
             </Grid>
           </Grid>
         </Box>
@@ -81,10 +76,10 @@ export default function About() {
           <Typography>OS</Typography>
           <Grid container>
             <Grid item>
-              <HoverIcon src='/logo/OS/apple.svg' alt='apple' />
+              <HoverIcon src='/logo/OS/apple.svg' title='MacOS' subTitle='3 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/OS/windows.svg' alt='windows' />
+              <HoverIcon src='/logo/OS/windows.svg' title='Windows' subTitle='3 years' />
             </Grid>
           </Grid>
         </Box>
@@ -92,10 +87,10 @@ export default function About() {
           <Typography>Hosting Service</Typography>
           <Grid container>
             <Grid item>
-              <HoverIcon src='/logo/host/aws.svg' alt='aws' />
+              <HoverIcon src='/logo/host/aws.svg' title='AWS' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/host/vercel.svg' alt='vercel' />
+              <HoverIcon src='/logo/host/vercel.svg' title='Vercel' subTitle='1 years' />
             </Grid>
           </Grid>
         </Box>
@@ -103,37 +98,45 @@ export default function About() {
           <Typography>Development Tool</Typography>
           <Grid container>
             <Grid item>
-              <HoverIcon src='/logo/tool/git.svg' alt='git' />
+              <HoverIcon src='/logo/tool/git.svg' title='git' subTitle='3 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/github.svg' alt='github' />
+              <HoverIcon src='/logo/tool/github.svg' title='git Hub' subTitle='3 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/gitlab.svg' alt='gitlab' />
+              <HoverIcon src='/logo/tool/gitlab.svg' title='git Lab' subTitle='3 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/visual-studio-code.svg' alt='vs-code' />
+              <HoverIcon
+                src='/logo/tool/visual-studio-code.svg'
+                title='VsCode'
+                subTitle='4 years'
+              />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/visual-studio.svg' alt='visual-studio' />
+              <HoverIcon
+                src='/logo/tool/visual-studio.svg'
+                title='Visual Studio'
+                subTitle='3 years'
+              />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/figma.svg' alt='figma' />
+              <HoverIcon src='/logo/tool/figma.svg' title='Figma' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/storybook.svg' alt='storybook' />
+              <HoverIcon src='/logo/tool/storybook.svg' title='storybook' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/material-ui.svg' alt='mui' />
+              <HoverIcon src='/logo/tool/material-ui.svg' title='MUI' subTitle='0.5 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/postman.svg' alt='postman' />
+              <HoverIcon src='/logo/tool/postman.svg' title='postman' subTitle='2 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/jupyter.svg' alt='jupyter' />
+              <HoverIcon src='/logo/tool/jupyter.svg' title='jupyter' subTitle='1 years' />
             </Grid>
             <Grid item>
-              <HoverIcon src='/logo/tool/anaconda.svg' alt='anaconda' />
+              <HoverIcon src='/logo/tool/anaconda.svg' title='anaconda' subTitle='2 years' />
             </Grid>
           </Grid>
         </Box>
