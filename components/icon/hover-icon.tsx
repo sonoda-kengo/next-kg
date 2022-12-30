@@ -13,7 +13,7 @@ export const HoverIcon = ({ src, title, subTitle }: IHoverIcon) => {
 
   return (
     <Box
-      margin={1}
+      margin={2}
       onMouseOver={() => setIsDisplay(true)}
       onMouseOut={() => setIsDisplay(false)}
       display='flex'
@@ -23,8 +23,8 @@ export const HoverIcon = ({ src, title, subTitle }: IHoverIcon) => {
       <Image src={src} alt={title} width={70} height={70} />
       {isDisplay && title && (
         <Box marginLeft='0.8rem'>
-          <Typography>{title}</Typography>
-          <Typography>{subTitle}</Typography>
+          <Typography color='textSecondary'>{title}</Typography>
+          <Typography color='textSecondary'>{subTitle}</Typography>
         </Box>
       )}
     </Box>
