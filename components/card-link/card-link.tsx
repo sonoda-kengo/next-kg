@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 interface ICardLinkProps {
   href: string;
   title: string;
-  imagePath: string;
+  imagePath?: string;
   children: ReactNode;
 }
 
