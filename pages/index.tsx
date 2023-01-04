@@ -8,7 +8,15 @@ export default function Home() {
   return (
     <Layout>
       <Container>
-        <h1 dangerouslySetInnerHTML={{ __html: t('home_msg') }} />
+        <Box>
+          <h1 dangerouslySetInnerHTML={{ __html: t('home_msg') }} />
+        </Box>
+        <Box marginY={4}>
+          <Typography variant='h3'>About</Typography>
+        </Box>
+        <Box marginY={4}>
+          <Typography variant='h3'>Work</Typography>
+        </Box>
         <Grid container direction='row' alignContent='center' justifyContent='center'>
           <Grid item sx={{ margin: '80px 100px' }}>
             <CardLink href='/about' imagePath='/images/test.jpg' title='About'>
