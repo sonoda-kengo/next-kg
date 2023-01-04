@@ -91,11 +91,7 @@ export const SkillList = () => {
             <HoverIcon src='/logo/tool/visual-studio-code.svg' title='VsCode' subTitle='4 years' />
           </Grid>
           <Grid item>
-            <HoverIcon
-              src='/logo/tool/visual-studio.svg'
-              title='Visual Studio'
-              subTitle='3 years'
-            />
+            <HoverIcon src='/logo/tool/visual-studio.svg' title='VisualStudio' subTitle='3 years' />
           </Grid>
           <Grid item>
             <HoverIcon src='/logo/tool/figma.svg' title='Figma' subTitle='0.5 years' />
