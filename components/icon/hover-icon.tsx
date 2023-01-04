@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -12,22 +12,38 @@ export const HoverIcon = ({ src, title, subTitle }: IHoverIcon) => {
   const [isDisplay, setIsDisplay] = useState(false);
 
   return (
-    <Grid
-      item
-      margin={2}
-      onMouseOver={() => setIsDisplay(true)}
-      onMouseOut={() => setIsDisplay(false)}
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
-    >
-      <Image src={src} alt={title} width={70} height={70} />
-      {isDisplay && title && (
-        <Grid item marginLeft='0.8rem'>
-          <Typography color='textSecondary'>{title}</Typography>
-          <Typography color='textSecondary'>{subTitle}</Typography>
+    <Box margin={2}>
+      {!isDisplay && (
+        <Grid
+          container
+          onMouseOver={() => setIsDisplay(true)}
+          onMouseOut={() => setIsDisplay(false)}
+          display='flex'
+          justifyContent='center'
+          alignItems='center'
+        >
+          <Image src={src} alt={title} width={70} height={70} />
         </Grid>
       )}
-    </Grid>
+      {isDisplay && title && (
+        <Grid
+          container
+          alignItems='center'
+          justifyContent='center'
+          direction='column'
+          onMouseOver={() => setIsDisplay(true)}
+          onMouseOut={() => setIsDisplay(false)}
+          width={70}
+          height={70}
+        >
+          <Typography align='center' color='textSecondary'>
+            {title}
+          </Typography>
+          <Typography align='center' color='textSecondary'>
+            {subTitle}
+          </Typography>
+        </Grid>
+      )}
+    </Box>
   );
 };
