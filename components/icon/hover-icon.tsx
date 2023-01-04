@@ -36,12 +36,8 @@ export const HoverIcon = ({ src, title, subTitle }: IHoverIcon) => {
           width={70}
           height={70}
         >
-          <Typography align='center' color='textSecondary'>
-            {title}
-          </Typography>
-          <Typography align='center' color='textSecondary'>
-            {subTitle}
-          </Typography>
+          <Typography color='textSecondary'>{title}</Typography>
+          <Typography color='textSecondary'>{subTitle}</Typography>
         </Grid>
       )}
     </Box>
