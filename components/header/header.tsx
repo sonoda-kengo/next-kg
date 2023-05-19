@@ -6,7 +6,7 @@ export default function Header() {
     <AppBar position='static' sx={{ letterSpacing: 2 }} color='primary'>
       <Toolbar disableGutters>
         <Typography variant='h6' component='a' href='/' marginLeft='4rem'>
-          KG Labo
+          KG
         </Typography>
         <Box marginLeft='auto'>
           <Link href='/about'>About</Link>

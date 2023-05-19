@@ -11,9 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
       // mode: isDarkMode ? 'dark' : 'light',
       mode: 'light',
       primary: {
-        main: '#d87274',
-        light: '#ffa2a3',
-        dark: '#a34449',
+        main: '#e6e5de',
+        // light: '#ffa2a3',
+        // dark: '#a34449',
       },
     },
   });
