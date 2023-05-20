@@ -3,7 +3,9 @@ import { styled } from '@mui/material/styles';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import Layout from 'components/layout';
+import LatestNoteArticle from 'features/rss/latest-note-article';
 
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,6 +19,7 @@ export default function Home() {
   const { t } = useTranslation('common');
   const windowHeight = '900px';
   const minHeight = '600px';
+
   return (
     <Layout>
       <Container>
@@ -105,11 +108,21 @@ export default function Home() {
                     <Box bgcolor='#fdf3c687' height='300px' padding={2}>
                       <Typography mb={2}>My Skill List</Typography>
                       <Typography mb={2}>FrontEnd : </Typography>
-                      <Typography mb={2} ml={2}>TypeScript, React, Next</Typography>
+                      <Typography mb={2} ml={2}>
+                        TypeScript, React, Next
+                      </Typography>
                       <Typography mb={2}>BackEnd : </Typography>
-                      <Typography mb={2} ml={2}>php(Laravel), python(Django), Node.js, C#</Typography>
-                      <Link href='/work' target="_blank" >
-                        <Typography mb={2} color='text.secondary' style={{textDecoration: 'underline'}}>LEARN MORE ...</Typography>
+                      <Typography mb={2} ml={2}>
+                        python(Django), php(Laravel), Node.js, C#
+                      </Typography>
+                      <Link href='/work' target='_blank' style={{ textAlign: 'right' }}>
+                        <Typography
+                          mt={4}
+                          color='text.secondary'
+                          style={{ textDecoration: 'underline' }}
+                        >
+                          LEARN MORE ...
+                        </Typography>
                       </Link>
                     </Box>
                   </Grid>
@@ -128,12 +141,10 @@ export default function Home() {
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={8}>
                     <Box>
-                      <Box height='200px' bgcolor='blue'></Box>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={4}>
-                    <Box>
-                      <Box height='200px' bgcolor='blue'></Box>
+                      <Box bgcolor='#fdf3c687' padding={2}>
+                        <Typography>note</Typography>
+                        <LatestNoteArticle />
+                      </Box>
                     </Box>
                   </Grid>
                 </Grid>
