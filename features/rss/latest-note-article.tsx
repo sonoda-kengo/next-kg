@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material';
+import { OpenInNew } from '@mui/icons-material';
+import { Grid, Paper, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -11,7 +12,7 @@ interface Article {
 }
 
 const LatestNoteArticle: React.FC = () => {
-  const [article, setArticle] = useState<Article | null>(null);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     const fetchLatestArticle = async () => {
@@ -23,14 +24,16 @@ const LatestNoteArticle: React.FC = () => {
         const parser = new DOMParser();
         const xml = parser.parseFromString(data, 'application/xml');
         const items = xml.querySelectorAll('item');
-        const latestItem = items[0];
+        const latestArticles = Array.from(items)
+          .slice(0, 2)
+          .map((item) => ({
+            title: item.querySelector('title')?.textContent || '',
+            thumbnail: item.querySelector('thumbnail')?.textContent || '',
+            description: item.querySelector('description')?.textContent || '',
+            link: item.querySelector('link')?.textContent || '',
+          }));
 
-        setArticle({
-          title: latestItem.querySelector('title')?.textContent || '',
-          thumbnail: latestItem.querySelector('thumbnail')?.textContent || '',
-          description: latestItem.querySelector('description')?.textContent || '',
-          link: latestItem.querySelector('link')?.textContent || '',
-        });
+        setArticles(latestArticles);
       } catch (error) {
         console.log('Error:', error);
       }
@@ -39,24 +42,38 @@ const LatestNoteArticle: React.FC = () => {
     fetchLatestArticle();
   }, []);
 
-  if (!article) {
-    return null;
-  }
-
-  if (article) {
-    console.log('article', article.thumbnail);
-  }
-
   return (
-    <Box>
-      <h2>{article.title}</h2>
-      <Box>
-        {article.thumbnail && (
-          <Image width={300} height={200} src={article?.thumbnail} alt='Thumbnail' />
-        )}
-      </Box>
-      <p dangerouslySetInnerHTML={{ __html: article.description }} />
-    </Box>
+    <Grid container spacing={2}>
+      {articles.map((article, index) => (
+        <Grid item key={index} xs={12} md={6}>
+          <Paper
+            sx={{
+              height: '320px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 3,
+            }}
+          >
+            {article.thumbnail && (
+              <Image width={300} height={200} src={article.thumbnail} alt='Thumbnail' />
+            )}
+            <Typography mt={2}>{article.title}</Typography>
+            <Link target='_blank' href={article.link} style={{ alignSelf: 'end' }}>
+              <Typography
+                color='text.secondary'
+                mt={3}
+                sx={{ display: 'flex', alignItems: 'center', textDecoration: 'underline' }}
+              >
+                Read More
+                <OpenInNew sx={{ ml: 1, fontSize: '1rem' }} />
+              </Typography>
+            </Link>
+          </Paper>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 

@@ -3,11 +3,10 @@ import { styled } from '@mui/material/styles';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import Layout from 'components/layout';
 import LatestNoteArticle from 'features/rss/latest-note-article';
 
-const Item = styled(Paper)(({ theme }) => ({
+export const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   // ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -121,7 +120,7 @@ export default function Home() {
                           color='text.secondary'
                           style={{ textDecoration: 'underline' }}
                         >
-                          LEARN MORE ...
+                          READ MORE ...
                         </Typography>
                       </Link>
                     </Box>
@@ -139,10 +138,9 @@ export default function Home() {
               </Grid>
               <Grid item>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} md={8}>
+                  <Grid item xs={12} md={12}>
                     <Box>
                       <Box bgcolor='#fdf3c687' padding={2}>
-                        <Typography>note</Typography>
                         <LatestNoteArticle />
                       </Box>
                     </Box>
