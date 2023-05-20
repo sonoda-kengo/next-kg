@@ -1,9 +1,12 @@
-import { Box, Container, Grid, Paper, Typography } from '@mui/material';
+import { OpenInNew } from '@mui/icons-material';
+import { Box, Container, Grid, List, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { HoverIcon } from 'components/icon/hover-icon';
 import Layout from 'components/layout';
+import { RowListItem } from 'components/list/row-list-item';
 import LatestNoteArticle from 'features/rss/latest-note-article';
 
 export const Item = styled(Paper)(({ theme }) => ({
@@ -151,16 +154,29 @@ export default function Home() {
                 </Typography>
               </Grid>
               <Grid item>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={8}>
-                    <Box>
-                      <Box height='200px' bgcolor='#fdf3c687'></Box>
-                    </Box>
+                <List>
+                  <RowListItem itemKey='name' itemValue='Sonoda Kengo' />
+                  <RowListItem itemKey='adress' itemValue='Setagaya, Tokyo' />
+                  <RowListItem itemKey='e-mail' itemValue='kengob6@gmail.com' />
+                </List>
+                <Grid container>
+                  <Grid item>
+                    <HoverIcon
+                      src='/logo/tool/github_black.svg'
+                      title='git Hub'
+                      subTitle='3 years'
+                    />
                   </Grid>
-                  <Grid item xs={12} md={4}>
-                    <Box>
-                      <Box height='200px' bgcolor='#fdf3c687'></Box>
-                    </Box>
+                  <Grid item>
+                    <Link target='_blank' href='https://github.com/sonoda-kengo'>
+                      <Typography
+                        mt={3}
+                        sx={{ display: 'flex', alignItems: 'center', textDecoration: 'underline' }}
+                      >
+                        gitHub
+                        <OpenInNew sx={{ ml: 1, fontSize: '1rem' }} />
+                      </Typography>
+                    </Link>
                   </Grid>
                 </Grid>
               </Grid>
