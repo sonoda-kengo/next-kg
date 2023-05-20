@@ -137,15 +137,9 @@ export default function Home() {
                 </Typography>
               </Grid>
               <Grid item>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={12}>
-                    <Box>
-                      <Box bgcolor='#fdf3c687' padding={2}>
-                        <LatestNoteArticle />
-                      </Box>
-                    </Box>
-                  </Grid>
-                </Grid>
+                <Box bgcolor='#fdf3c687' padding={2}>
+                  <LatestNoteArticle />
+                </Box>
               </Grid>
             </Grid>
           </Box>
@@ -160,12 +154,12 @@ export default function Home() {
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={8}>
                     <Box>
-                      <Box height='200px' bgcolor='blue'></Box>
+                      <Box height='200px' bgcolor='#fdf3c687'></Box>
                     </Box>
                   </Grid>
                   <Grid item xs={12} md={4}>
                     <Box>
-                      <Box height='200px' bgcolor='blue'></Box>
+                      <Box height='200px' bgcolor='#fdf3c687'></Box>
                     </Box>
                   </Grid>
                 </Grid>

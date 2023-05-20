@@ -11,8 +11,14 @@ interface Article {
   link: string;
 }
 
-const LatestNoteArticle: React.FC = () => {
+interface LatestNoteArticleProps {
+  articleCount?: number;
+  isAll?: boolean;
+}
+
+const LatestNoteArticle: React.FC<LatestNoteArticleProps> = ({ articleCount, isAll }) => {
   const [articles, setArticles] = useState<Article[]>([]);
+  articleCount = articleCount ? articleCount : 2;
 
   useEffect(() => {
     const fetchLatestArticle = async () => {
@@ -24,15 +30,16 @@ const LatestNoteArticle: React.FC = () => {
         const parser = new DOMParser();
         const xml = parser.parseFromString(data, 'application/xml');
         const items = xml.querySelectorAll('item');
-        const latestArticles = Array.from(items)
-          .slice(0, 2)
-          .map((item) => ({
-            title: item.querySelector('title')?.textContent || '',
-            thumbnail: item.querySelector('thumbnail')?.textContent || '',
-            description: item.querySelector('description')?.textContent || '',
-            link: item.querySelector('link')?.textContent || '',
-          }));
+        let latestArticles = Array.from(items).map((item) => ({
+          title: item.querySelector('title')?.textContent || '',
+          thumbnail: item.querySelector('thumbnail')?.textContent || '',
+          description: item.querySelector('description')?.textContent || '',
+          link: item.querySelector('link')?.textContent || '',
+        }));
 
+        if (!isAll) {
+          latestArticles = latestArticles.slice(0, articleCount);
+        }
         setArticles(latestArticles);
       } catch (error) {
         console.log('Error:', error);
@@ -40,7 +47,7 @@ const LatestNoteArticle: React.FC = () => {
     };
 
     fetchLatestArticle();
-  }, []);
+  }, [articleCount, isAll]);
 
   return (
     <Grid container spacing={2}>

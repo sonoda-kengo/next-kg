@@ -15,7 +15,7 @@ export default function Header() {
           <Link href='/work'>Work</Link>
         </Box>
         <Box marginLeft='1rem'>
-          <Link href='/'>Blog</Link>
+          <Link href='/blog'>Blog</Link>
         </Box>
         <Box margin='0 4rem 0 1rem'>
           <Link href='/contact'>Contact</Link>

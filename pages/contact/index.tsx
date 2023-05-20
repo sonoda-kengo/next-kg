@@ -23,7 +23,7 @@ export default function Contact() {
           <Grid item xs={6}>
             <List>
               <RowListItem itemKey='name' itemValue='Sonoda Kengo' />
-              <RowListItem itemKey='adress' itemValue='Tokyo Setagaya' />
+              <RowListItem itemKey='adress' itemValue='Setagaya, Tokyo' />
               <RowListItem itemKey='e-mail' itemValue='kengob6@gmail.com' />
             </List>
           </Grid>
