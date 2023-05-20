@@ -43,10 +43,14 @@ export const SkillList = () => {
             <HoverIcon src='/logo/framework/nodejs.svg' title='Node' subTitle='1 years' />
           </Grid>
           <Grid item>
-            <HoverIcon src='/logo/framework/threejs.svg' title='Three' subTitle='0.5 years' />
+            <HoverIcon src='/logo/framework/threejs_black.svg' title='Three' subTitle='0.5 years' />
           </Grid>
           <Grid item>
-            <HoverIcon src='/logo/framework/express.svg' title='Express' subTitle='0.5 years' />
+            <HoverIcon
+              src='/logo/framework/express_black.svg'
+              title='Express'
+              subTitle='0.5 years'
+            />
           </Grid>
           <Grid item>
             <HoverIcon src='/logo/framework/laravel.svg' title='Laravel' subTitle='0.5 years' />
@@ -57,7 +61,7 @@ export const SkillList = () => {
         <Typography>OS</Typography>
         <Grid container>
           <Grid item>
-            <HoverIcon src='/logo/OS/apple.svg' title='MacOS' subTitle='3 years' />
+            <HoverIcon src='/logo/OS/apple_black.svg' title='MacOS' subTitle='3 years' />
           </Grid>
           <Grid item>
             <HoverIcon src='/logo/OS/windows.svg' title='Windows' subTitle='3 years' />
@@ -71,7 +75,7 @@ export const SkillList = () => {
             <HoverIcon src='/logo/host/aws.svg' title='AWS' subTitle='0.5 years' />
           </Grid>
           <Grid item>
-            <HoverIcon src='/logo/host/vercel.svg' title='Vercel' subTitle='1 years' />
+            <HoverIcon src='/logo/host/vercel_black.svg' title='Vercel' subTitle='1 years' />
           </Grid>
         </Grid>
       </Box>
@@ -82,7 +86,7 @@ export const SkillList = () => {
             <HoverIcon src='/logo/tool/git.svg' title='git' subTitle='3 years' />
           </Grid>
           <Grid item>
-            <HoverIcon src='/logo/tool/github.svg' title='git Hub' subTitle='3 years' />
+            <HoverIcon src='/logo/tool/github_black.svg' title='git Hub' subTitle='3 years' />
           </Grid>
           <Grid item>
             <HoverIcon src='/logo/tool/gitlab.svg' title='git Lab' subTitle='3 years' />

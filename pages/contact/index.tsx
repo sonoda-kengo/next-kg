@@ -1,16 +1,5 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Grid,
-  List,
-  ListItem,
-  ListSubheader,
-  Typography,
-} from '@mui/material';
-import useTranslation from 'next-translate/useTranslation';
+import { Container, Grid, List } from '@mui/material';
 import Image from 'next/image';
-import { CardLink } from 'components/card-link/card-link';
 import Layout from 'components/layout';
 import { RowListItem } from 'components/list/row-list-item';
 
@@ -23,13 +12,13 @@ export default function Contact() {
           <Grid item xs={6}>
             <List>
               <RowListItem itemKey='name' itemValue='Sonoda Kengo' />
-              <RowListItem itemKey='adress' itemValue='Tokyo Setagaya' />
+              <RowListItem itemKey='adress' itemValue='Setagaya, Tokyo' />
               <RowListItem itemKey='e-mail' itemValue='kengob6@gmail.com' />
             </List>
           </Grid>
-          {/* <Grid item xs={6}>
-            <Image src='/images/profile.jpeg' alt='my photo' width={300} height={400} />
-          </Grid> */}
+          <Grid item xs={6}>
+            <Image src='/images/me.jpg' alt='my photo' width={300} height={400} />
+          </Grid>
         </Grid>
       </Container>
     </Layout>
