@@ -1,5 +1,5 @@
 import { OpenInNew } from '@mui/icons-material';
-import { Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -63,9 +63,21 @@ const LatestNoteArticle: React.FC<LatestNoteArticleProps> = ({ articleCount, isA
               padding: 3,
             }}
           >
-            {article.thumbnail && (
-              <Image width={300} height={200} src={article.thumbnail} alt='Thumbnail' />
-            )}
+            <Box maxWidth='100%' maxHeight='70%' position='relative'>
+              {article.thumbnail && (
+                <Image
+                  sizes='100vw'
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                  }}
+                  width={800}
+                  height={419}
+                  src={article.thumbnail}
+                  alt='Thumbnail'
+                />
+              )}
+            </Box>
             <Typography mt={2}>{article.title}</Typography>
             <Link target='_blank' href={article.link} style={{ alignSelf: 'end' }}>
               <Typography
