@@ -140,7 +140,7 @@ export default function Home() {
                 </Typography>
               </Grid>
               <Grid item>
-                <Box bgcolor='#fdf3c687' padding={2}>
+                <Box padding={2}>
                   <LatestNoteArticle />
                 </Box>
               </Grid>
