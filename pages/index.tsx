@@ -1,7 +1,6 @@
 import { OpenInNew } from '@mui/icons-material';
 import { Box, Container, Grid, List, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import useTranslation from 'next-translate/useTranslation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HoverIcon } from 'components/icon/hover-icon';
@@ -10,15 +9,10 @@ import { RowListItem } from 'components/list/row-list-item';
 import LatestNoteArticle from 'features/rss/latest-note-article';
 
 export const Item = styled(Paper)(({ theme }) => ({
-  // backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  // ...theme.typography.body2,
   padding: theme.spacing(1),
-  // textAlign: 'center',
-  // color: theme.palette.text.secondary,
 }));
 
 export default function Home() {
-  const { t } = useTranslation('common');
   const windowHeight = '900px';
   const minHeight = '600px';
 
@@ -55,9 +49,6 @@ export default function Home() {
                 </Typography>
               </Grid>
               <Grid item>
-                {/* <Grid container direction='row' justifyContent='center'>
-                  <Grid item bgcolor='#def3f4' margin={2} padding={4} width='60%'> */}
-
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={8}>
                     <Item>
@@ -74,7 +65,6 @@ export default function Home() {
                       </Typography>
                     </Item>
                   </Grid>
-                  {/* <Grid item margin={2}> */}
 
                   <Grid item xs={12} md={4}>
                     <Box textAlign='center'>
@@ -93,9 +83,6 @@ export default function Home() {
                 </Typography>
               </Grid>
               <Grid item>
-                {/* <Grid container direction='row' justifyContent='center'>
-                  <Grid item bgcolor='#def3f4' margin={2} padding={4} width='30%'> */}
-
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={4}>
                     <Item>
@@ -104,8 +91,6 @@ export default function Home() {
                       <Typography mb={2}>IN: TOKYO</Typography>
                     </Item>
                   </Grid>
-                  {/* <Grid item bgcolor='#def3f4' margin={2} padding={4} width='60%'> */}
-
                   <Grid item xs={12} md={8}>
                     <Box bgcolor='#fdf3c687' height='300px' padding={2}>
                       <Typography mb={2}>My Skill List</Typography>
