@@ -1,17 +1,29 @@
-import { Box, Container, Divider } from '@mui/material';
+import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import Layout from 'components/layout';
-import { SkillList } from 'features/skill-list/skill-list';
+import { Be_202304 } from 'features/work/be_202304';
+import { Fe_202401 } from 'features/work/fe_202401';
+import { Se_202104 } from 'features/work/se_202104';
 
 export default function Work() {
   return (
     <Layout>
       <Container>
-        <h1>Work</h1>
-        <Box>
-          <h2>Skill list</h2>
-          <Divider />
-        </Box>
-        <SkillList />
+        <Stack direction='column' margin={2}>
+          <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+            work
+          </Typography>
+          <Grid container spacing={4}>
+            <Grid item>
+              <Fe_202401 />
+            </Grid>
+            <Grid item>
+              <Be_202304 />
+            </Grid>
+            <Grid item>
+              <Se_202104 />
+            </Grid>
+          </Grid>
+        </Stack>
       </Container>
     </Layout>
   );

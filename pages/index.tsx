@@ -1,5 +1,5 @@
 import { OpenInNew } from '@mui/icons-material';
-import { Box, Container, Grid, List, Paper, Typography } from '@mui/material';
+import { Box, Chip, Container, Grid, List, Paper, Stack, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,9 +7,12 @@ import { HoverIcon } from 'components/icon/hover-icon';
 import Layout from 'components/layout';
 import { RowListItem } from 'components/list/row-list-item';
 import LatestNoteArticle from 'features/rss/latest-note-article';
+import { Be_202304 } from 'features/work/be_202304';
+import { Fe_202401 } from 'features/work/fe_202401';
+import { Se_202104 } from 'features/work/se_202104';
 
 export const Item = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(1),
+  padding: theme.spacing(3),
 }));
 
 export default function Home() {
@@ -28,54 +31,99 @@ export default function Home() {
             justifyContent='center'
           >
             <Grid item width='80%'>
-              <Typography letterSpacing={1}>Hi, my name is</Typography>
               <Typography variant='h2' sx={{ fontWeight: 'bold' }} letterSpacing={1}>
-                Kengo Sonoda.
+                Kengo Sonoda
               </Typography>
               <Typography variant='h3' color='text.secondary' letterSpacing={1}>
-                I&apos;ll help your project.
+                Let me help with your project.
               </Typography>
               <Typography letterSpacing={1} my={2} color='text.secondary'>
-                I&apos;m a software engineer specializing in building (and occasionally designing)
-                exceptional digital experiences.Please check my site.
+                I&apos;m a software engineer passionate about creating exceptional digital
+                experiences. With a background in web development and a keen eye for design, I
+                specialize in crafting immersive online solutions tailored to your needs.
               </Typography>
             </Grid>
           </Grid>
-          <Box display='flex' width='80%' margin='auto' minHeight={minHeight} alignItems='center'>
+
+          {/* About */}
+          <Box
+            display='flex'
+            width='80%'
+            margin='auto'
+            mb={8}
+            minHeight={minHeight}
+            alignItems='center'
+          >
             <Grid container direction='column'>
               <Grid item>
                 <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
                   01 About
                 </Typography>
               </Grid>
-              <Grid item>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={8}>
-                    <Item>
-                      <Typography mb={2}>
-                        Hello! My name is Kengo and I enjoy creating works online.
+              <Grid item container spacing={3}>
+                <Grid item xs={12} md={8}>
+                  <Item>
+                    <Typography mb={2}>
+                      Hello! I&apos;m Kengo, a web developer passionate about creating online
+                      experiences.
+                    </Typography>
+                    <Typography mb={2}>
+                      I started on my journey as a web developer after graduating from university in
+                      2021.
+                    </Typography>
+                    <Typography mb={2}>
+                      Over the years, I&apos;ve been involved in various projects utilizing a range
+                      of technologies including React, Next.js, Django, PHP, and C#.
+                    </Typography>
+                  </Item>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Box textAlign='center'>
+                    <Image src='/images/me.jpg' width={180} height={240} alt={''} />
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <Box bgcolor='#fdf3c687' padding={2}>
+                    <Typography mb={2}>University: Tokyo Institute of Technology</Typography>
+                    <Typography mb={2}>Location: Kagoshima, Japan</Typography>
+                    <Typography mb={2}>Current Location: Tokyo, Japan</Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={12} md={8}>
+                  <Item>
+                    <Typography mb={2}>My Skills</Typography>
+                    <Typography mb={2}>Frontend :</Typography>
+                    <Typography mb={2} ml={2}>
+                      - TypeScript, React, Next.js
+                    </Typography>
+                    <Typography mb={2}>Backend :</Typography>
+                    <Typography mb={2} ml={2}>
+                      - Python (Django), PHP (Laravel), Node.js, C#
+                    </Typography>
+                    <Link href='/work' target='_blank' style={{ textAlign: 'right' }}>
+                      <Typography
+                        mt={4}
+                        color='text.secondary'
+                        style={{ textDecoration: 'underline' }}
+                      >
+                        READ MORE ...
                       </Typography>
-                      <Typography mb={2}>
-                        I started my career as a web developer after graduating from Tokyo Institute
-                        of Technology in 2021.
-                      </Typography>
-                      <Typography mb={2}>
-                        I have participated in various projects using technologies such as React,
-                        Next, Django, PHP, and C#.
-                      </Typography>
-                    </Item>
-                  </Grid>
-
-                  <Grid item xs={12} md={4}>
-                    <Box textAlign='center'>
-                      <Image src='/images/me.jpg' width={180} height={240} alt={''} />
-                    </Box>
-                  </Grid>
+                    </Link>
+                  </Item>
                 </Grid>
               </Grid>
             </Grid>
           </Box>
-          <Box display='flex' width='80%' margin='auto' minHeight={minHeight} alignItems='center'>
+
+          {/* Work */}
+          <Box
+            display='flex'
+            width='80%'
+            margin='auto'
+            mb={8}
+            minHeight={minHeight}
+            alignItems='center'
+          >
             <Grid container direction='column'>
               <Grid item>
                 <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
@@ -83,41 +131,30 @@ export default function Home() {
                 </Typography>
               </Grid>
               <Grid item>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={4}>
-                    <Item>
-                      <Typography mb={2}>UNIIV: Tokyo Insitute of Technology</Typography>
-                      <Typography mb={2}>FROM: KAGOSHIMA</Typography>
-                      <Typography mb={2}>IN: TOKYO</Typography>
-                    </Item>
+                <Grid container spacing={4}>
+                  <Grid item>
+                    <Fe_202401 />
                   </Grid>
-                  <Grid item xs={12} md={8}>
-                    <Box bgcolor='#fdf3c687' height='300px' padding={2}>
-                      <Typography mb={2}>My Skill List</Typography>
-                      <Typography mb={2}>FrontEnd : </Typography>
-                      <Typography mb={2} ml={2}>
-                        TypeScript, React, Next
-                      </Typography>
-                      <Typography mb={2}>BackEnd : </Typography>
-                      <Typography mb={2} ml={2}>
-                        python(Django), php(Laravel), Node.js, C#
-                      </Typography>
-                      <Link href='/work' target='_blank' style={{ textAlign: 'right' }}>
-                        <Typography
-                          mt={4}
-                          color='text.secondary'
-                          style={{ textDecoration: 'underline' }}
-                        >
-                          READ MORE ...
-                        </Typography>
-                      </Link>
-                    </Box>
+                  <Grid item>
+                    <Be_202304 />
+                  </Grid>
+                  <Grid item>
+                    <Se_202104 />
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Box>
-          <Box display='flex' width='80%' margin='auto' minHeight={minHeight} alignItems='center'>
+
+          {/* Blog */}
+          <Box
+            display='flex'
+            width='80%'
+            margin='auto'
+            mb={8}
+            minHeight={minHeight}
+            alignItems='center'
+          >
             <Grid container direction='column'>
               <Grid item>
                 <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
@@ -131,7 +168,16 @@ export default function Home() {
               </Grid>
             </Grid>
           </Box>
-          <Box display='flex' width='80%' margin='auto' minHeight={minHeight} alignItems='center'>
+
+          {/* Contact */}
+          <Box
+            display='flex'
+            width='80%'
+            margin='auto'
+            mb={8}
+            minHeight={minHeight}
+            alignItems='center'
+          >
             <Grid container direction='column'>
               <Grid item>
                 <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
