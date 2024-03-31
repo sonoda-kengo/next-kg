@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import Layout from 'components/layout';
 import { SkillList } from 'features/skill-list/skill-list';
 
@@ -6,21 +6,22 @@ export default function About() {
   return (
     <Layout>
       <Container>
-        <h1>About</h1>
-        <Grid container alignContent='center' justifyContent='center'>
-          <Typography>
-            In April 2021,
-            I started my carrer as a software engineer.
-            I live in Tokyo now.
+        <Stack direction='column' margin={2}>
+          <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+            about
           </Typography>
-          <Typography>
-            In the future,  I will work abroad.
-          </Typography>
-        </Grid>
-        <Box>
-          <h2>skill</h2>
-        </Box>
-        <SkillList />
+          <Grid container>
+            <Typography>
+              In April 2021, I began my career as a software engineer. I am currently based in
+              Tokyo.At present, I am working as a freelance engineer in Tokyo.Moving forward, I
+              aspire to work abroad.
+            </Typography>
+          </Grid>
+          <Box>
+            <h2>skill</h2>
+          </Box>
+          <SkillList />
+        </Stack>
       </Container>
     </Layout>
   );
