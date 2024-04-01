@@ -25,7 +25,7 @@ export const Fe_202401 = () => {
               Implemented input validation and verification features to enhance UX.
             </Typography>
           </Box>
-          <Stack direction='row' margin={2} spacing={2}>
+          <Stack direction='row' margin={2} spacing={{ xs: 1, sm: 2 }} flexWrap='wrap'>
             <Chip label='Next.js' />
             <Chip label='AppRouter' />
             <Chip label='Typescript' />
@@ -35,7 +35,7 @@ export const Fe_202401 = () => {
             <Chip label='Yup' />
           </Stack>
           <Divider flexItem sx={{ width: '95%', marginX: 'auto' }} />
-          <Stack direction='row' margin={2} spacing={2}>
+          <Stack direction='row' margin={2} spacing={{ xs: 1, sm: 2 }} flexWrap='wrap'>
             <Chip label='Django' />
             <Chip label='mysql' />
             <Chip label='Docker' />

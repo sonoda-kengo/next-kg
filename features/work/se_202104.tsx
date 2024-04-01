@@ -19,7 +19,7 @@ export const Se_202104 = () => {
               software.
             </Typography>
           </Box>
-          <Stack direction='row' margin={2} spacing={2}>
+          <Stack direction='row' margin={2} spacing={{ xs: 1, sm: 2 }} flexWrap='wrap'>
             <Chip label='React' />
             <Chip label='PHP' />
             <Chip label='Laravel' />
