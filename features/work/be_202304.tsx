@@ -29,7 +29,7 @@ export const Be_202304 = () => {
               test suites.
             </Typography>
           </Box>
-          <Stack direction='row' margin={2} spacing={2}>
+          <Stack direction='row' margin={2} spacing={{ xs: 1, sm: 2 }} flexWrap='wrap'>
             <Chip label='Django' />
             <Chip label='mysql' />
             <Chip label='Swagger' />
