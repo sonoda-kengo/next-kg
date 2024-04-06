@@ -7,9 +7,9 @@ import { HoverIcon } from 'components/icon/hover-icon';
 import Layout from 'components/layout';
 import { RowListItem } from 'components/list/row-list-item';
 import LatestNoteArticle from 'features/rss/latest-note-article';
-import { Be_202304 } from 'features/work/be_202304';
-import { Fe_202401 } from 'features/work/fe_202401';
-import { Se_202104 } from 'features/work/se_202104';
+import { Be_202304 } from 'features/work/be-202304';
+import { Fe_202401 } from 'features/work/fe-202401';
+import { Se_202104 } from 'features/work/se-202104';
 
 export const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
