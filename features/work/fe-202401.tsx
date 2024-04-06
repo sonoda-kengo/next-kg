@@ -1,5 +1,5 @@
 import { Box, Chip, Divider, Grid, Stack, Typography } from '@mui/material';
-import { HoverGrid } from 'components/grid/HoverGrid';
+import { HoverGrid } from 'components/grid/hover-grid';
 
 export const Fe_202401 = () => {
   return (
