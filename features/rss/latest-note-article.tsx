@@ -1,8 +1,8 @@
-import { OpenInNew } from '@mui/icons-material';
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Grid, Paper, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { HoverPaper } from 'components/paper/hover-paper';
 
 interface Article {
   title: string;
@@ -50,46 +50,33 @@ const LatestNoteArticle: React.FC<LatestNoteArticleProps> = ({ articleCount, isA
   }, [articleCount, isAll]);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={3}>
       {articles.map((article, index) => (
-        <Grid item key={index} xs={12} md={6}>
-          <Paper
-            sx={{
-              height: '320px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: 3,
-            }}
-          >
-            <Box maxWidth='100%' maxHeight='70%' position='relative'>
-              {article.thumbnail && (
-                <Image
-                  sizes='100vw'
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                  width={800}
-                  height={419}
-                  src={article.thumbnail}
-                  alt='Thumbnail'
-                />
-              )}
-            </Box>
-            <Typography mt={2}>{article.title}</Typography>
-            <Link target='_blank' href={article.link} style={{ alignSelf: 'end' }}>
-              <Typography
-                color='text.secondary'
-                mt={3}
-                sx={{ display: 'flex', alignItems: 'center', textDecoration: 'underline' }}
-              >
-                Read More
-                <OpenInNew sx={{ ml: 1, fontSize: '1rem' }} />
-              </Typography>
-            </Link>
-          </Paper>
+        <Grid item key={index} xs={12} md={6} sx={{ padding: 0 }}>
+          <Link target='_blank' href={article.link}>
+            <HoverPaper>
+              <Grid container direction='column' justifyContent='center' alignItems='center'>
+                <Grid item>
+                  {article.thumbnail && (
+                    <Image
+                      sizes='100vw'
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                      width={800}
+                      height={419}
+                      src={article.thumbnail}
+                      alt='Thumbnail'
+                    />
+                  )}
+                </Grid>
+                <Grid item>
+                  <Typography mt={2}>{article.title}</Typography>
+                </Grid>
+              </Grid>
+            </HoverPaper>
+          </Link>
         </Grid>
       ))}
     </Grid>

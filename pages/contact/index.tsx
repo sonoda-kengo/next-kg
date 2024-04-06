@@ -1,4 +1,4 @@
-import { Container, Grid, List, useMediaQuery, useTheme } from '@mui/material';
+import { Grid, List, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import Layout from 'components/layout';
 import { RowListItem } from 'components/list/row-list-item';
@@ -10,7 +10,7 @@ export default function Contact() {
   const imageHeight = isMobile ? 280 : 400;
   return (
     <Layout>
-      <Container>
+      <>
         <h1>Contact</h1>
         <Grid container direction='row' alignContent='center' justifyContent='center'>
           <Grid item xs={12} md={6}>
@@ -24,7 +24,7 @@ export default function Contact() {
             <Image src='/images/me.jpg' alt='my photo' width={imageWidth} height={imageHeight} />
           </Grid>
         </Grid>
-      </Container>
+      </>
     </Layout>
   );
 }
