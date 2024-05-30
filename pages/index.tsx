@@ -1,21 +1,28 @@
 import { OpenInNew } from '@mui/icons-material';
 import { Box, Grid, List, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HoverIcon } from 'components/icon/hover-icon';
 import Layout from 'components/layout';
 import { RowListItem } from 'components/list/row-list-item';
+import { fetchArticles } from 'features/rss/fetchArticles';
 import LatestNoteArticle from 'features/rss/latest-note-article';
 import { Be_202304 } from 'features/work/be-202304';
 import { Fe_202401 } from 'features/work/fe-202401';
 import { Se_202104 } from 'features/work/se-202104';
+import { IArticle } from 'type/types';
+
+interface Props {
+  articles: IArticle[];
+}
 
 export const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
 }));
 
-export default function Home() {
+const Home: NextPage<Props> = ({ articles }) => {
   const windowHeight = '900px';
   const minHeight = '600px';
 
@@ -55,9 +62,11 @@ export default function Home() {
         >
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                01 About
-              </Typography>
+              <Link href='/about'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  01 About
+                </Typography>
+              </Link>
             </Grid>
             <Grid item container spacing={3}>
               <Grid item xs={12} md={8}>
@@ -99,15 +108,6 @@ export default function Home() {
                   <Typography mb={2} ml={2}>
                     - Python (Django), PHP (Laravel), Node.js, C#
                   </Typography>
-                  <Link href='/work' target='_blank' style={{ textAlign: 'right' }}>
-                    <Typography
-                      mt={4}
-                      color='text.secondary'
-                      style={{ textDecoration: 'underline' }}
-                    >
-                      READ MORE ...
-                    </Typography>
-                  </Link>
                 </Item>
               </Grid>
             </Grid>
@@ -125,9 +125,11 @@ export default function Home() {
         >
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                02 Work
-              </Typography>
+              <Link href='/work'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  02 Work
+                </Typography>
+              </Link>
             </Grid>
             <Grid item>
               <Grid container spacing={4}>
@@ -156,15 +158,22 @@ export default function Home() {
         >
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                03 Blog
-              </Typography>
+              <Link href='/blog'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  03 Blog
+                </Typography>
+              </Link>
             </Grid>
             <Grid item>
               <Box padding={2}>
-                <LatestNoteArticle />
+                <LatestNoteArticle articleCount={2} articles={articles} />
               </Box>
             </Grid>
+            <Link href='/blog' style={{ textAlign: 'right' }}>
+              <Typography mt={4} color='text.secondary' style={{ textDecoration: 'underline' }}>
+                READ MORE ...
+              </Typography>
+            </Link>
           </Grid>
         </Box>
 
@@ -172,9 +181,11 @@ export default function Home() {
         <Box display='flex' width='80%' margin='auto' minHeight={minHeight} alignItems='center'>
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                04 Contact
-              </Typography>
+              <Link href='/contact'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  04 Contact
+                </Typography>
+              </Link>
             </Grid>
             <Grid item>
               <List>
@@ -204,4 +215,17 @@ export default function Home() {
       </Box>
     </Layout>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const articles = await fetchArticles();
+
+  return {
+    props: {
+      articles,
+    },
+    revalidate: 60,
+  };
+};
+
+export default Home;
