@@ -62,9 +62,11 @@ const Home: NextPage<Props> = ({ articles }) => {
         >
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                01 About
-              </Typography>
+              <Link href='/about'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  01 About
+                </Typography>
+              </Link>
             </Grid>
             <Grid item container spacing={3}>
               <Grid item xs={12} md={8}>
@@ -106,15 +108,6 @@ const Home: NextPage<Props> = ({ articles }) => {
                   <Typography mb={2} ml={2}>
                     - Python (Django), PHP (Laravel), Node.js, C#
                   </Typography>
-                  <Link href='/work' target='_blank' style={{ textAlign: 'right' }}>
-                    <Typography
-                      mt={4}
-                      color='text.secondary'
-                      style={{ textDecoration: 'underline' }}
-                    >
-                      READ MORE ...
-                    </Typography>
-                  </Link>
                 </Item>
               </Grid>
             </Grid>
@@ -132,9 +125,11 @@ const Home: NextPage<Props> = ({ articles }) => {
         >
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                02 Work
-              </Typography>
+              <Link href='/work'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  02 Work
+                </Typography>
+              </Link>
             </Grid>
             <Grid item>
               <Grid container spacing={4}>
@@ -163,15 +158,22 @@ const Home: NextPage<Props> = ({ articles }) => {
         >
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                03 Blog
-              </Typography>
+              <Link href='/blog'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  03 Blog
+                </Typography>
+              </Link>
             </Grid>
             <Grid item>
               <Box padding={2}>
                 <LatestNoteArticle articleCount={2} articles={articles} />
               </Box>
             </Grid>
+            <Link href='/blog' style={{ textAlign: 'right' }}>
+              <Typography mt={4} color='text.secondary' style={{ textDecoration: 'underline' }}>
+                READ MORE ...
+              </Typography>
+            </Link>
           </Grid>
         </Box>
 
@@ -179,9 +181,11 @@ const Home: NextPage<Props> = ({ articles }) => {
         <Box display='flex' width='80%' margin='auto' minHeight={minHeight} alignItems='center'>
           <Grid container direction='column'>
             <Grid item>
-              <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
-                04 Contact
-              </Typography>
+              <Link href='/contact'>
+                <Typography variant='h4' mb={2} sx={{ fontWeight: 'bold' }}>
+                  04 Contact
+                </Typography>
+              </Link>
             </Grid>
             <Grid item>
               <List>
