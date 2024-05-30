@@ -1,53 +1,20 @@
-import { Grid, Paper, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { HoverPaper } from 'components/paper/hover-paper';
+import { IArticle } from 'type/types';
 
-interface Article {
-  title: string;
-  thumbnail: string | null;
-  description: string;
-  link: string;
-}
-
-interface LatestNoteArticleProps {
+interface ILatestNoteArticleProps {
   articleCount?: number;
   isAll?: boolean;
+  articles: IArticle[];
 }
 
-const LatestNoteArticle: React.FC<LatestNoteArticleProps> = ({ articleCount, isAll }) => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  articleCount = articleCount ? articleCount : 2;
-
-  useEffect(() => {
-    const fetchLatestArticle = async () => {
-      const proxyUrl = '/api/proxy?url=https://note.com/magn_kengo/rss';
-
-      try {
-        const response = await fetch(proxyUrl);
-        const data = await response.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(data, 'application/xml');
-        const items = xml.querySelectorAll('item');
-        let latestArticles = Array.from(items).map((item) => ({
-          title: item.querySelector('title')?.textContent || '',
-          thumbnail: item.querySelector('thumbnail')?.textContent || '',
-          description: item.querySelector('description')?.textContent || '',
-          link: item.querySelector('link')?.textContent || '',
-        }));
-
-        if (!isAll) {
-          latestArticles = latestArticles.slice(0, articleCount);
-        }
-        setArticles(latestArticles);
-      } catch (error) {
-        console.log('Error:', error);
-      }
-    };
-
-    fetchLatestArticle();
-  }, [articleCount, isAll]);
+function LatestNoteArticle({ articleCount, isAll, articles }: ILatestNoteArticleProps) {
+  if (!isAll && articleCount) {
+    articles = articles.slice(0, articleCount);
+  }
 
   return (
     <Grid container spacing={3}>
@@ -81,6 +48,6 @@ const LatestNoteArticle: React.FC<LatestNoteArticleProps> = ({ articleCount, isA
       ))}
     </Grid>
   );
-};
+}
 
 export default LatestNoteArticle;
