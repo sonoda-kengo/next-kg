@@ -12,8 +12,7 @@ export default function About() {
         <Grid container>
           <Typography>
             In April 2021, I began my career as a software engineer. I am currently based in
-            Tokyo.At present, I am working as a freelance engineer in Tokyo.Moving forward, I aspire
-            to work abroad.
+            Amsterdam, the Netherlands, working as a freelance engineer.
           </Typography>
         </Grid>
         <Box>

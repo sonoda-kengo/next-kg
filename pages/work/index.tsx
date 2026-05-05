@@ -1,5 +1,6 @@
-import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import { Grid, Stack, Typography } from '@mui/material';
 import Layout from 'components/layout';
+import { Ai_202511 } from 'features/work/ai-202511';
 import { Be_202304 } from 'features/work/be-202304';
 import { Fe_202401 } from 'features/work/fe-202401';
 import { Se_202104 } from 'features/work/se-202104';
@@ -12,6 +13,9 @@ export default function Work() {
           work
         </Typography>
         <Grid container spacing={4}>
+          <Grid item>
+            <Ai_202511 />
+          </Grid>
           <Grid item>
             <Fe_202401 />
           </Grid>
