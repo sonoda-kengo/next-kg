@@ -15,9 +15,9 @@ export default function Contact() {
         <Grid container direction='row' alignContent='center' justifyContent='center'>
           <Grid item xs={12} md={6}>
             <List>
-              <RowListItem itemKey='name' itemValue='Sonoda Kengo' />
-              <RowListItem itemKey='adress' itemValue='Setagaya, Tokyo' />
-              <RowListItem itemKey='e-mail' itemValue='kengob6@gmail.com' />
+              <RowListItem itemKey='name' itemValue='Kengo Sonoda' />
+              <RowListItem itemKey='adress' itemValue='Amsterdam, the Netherlands' />
+              <RowListItem itemKey='e-mail' itemValue='surulab.inc@gmail.com' />
             </List>
           </Grid>
           <Grid item xs={12} md={6} display='contents'>

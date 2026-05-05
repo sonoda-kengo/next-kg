@@ -2,6 +2,7 @@ import { OpenInNew } from '@mui/icons-material';
 import { Box, Grid, List, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HoverIcon } from 'components/icon/hover-icon';
@@ -9,10 +10,17 @@ import Layout from 'components/layout';
 import { RowListItem } from 'components/list/row-list-item';
 import { fetchArticles } from 'features/rss/fetchArticles';
 import LatestNoteArticle from 'features/rss/latest-note-article';
+import { HomeSkillChips } from 'features/skill/home-skill-chips';
+import { Ai_202511 } from 'features/work/ai-202511';
 import { Be_202304 } from 'features/work/be-202304';
 import { Fe_202401 } from 'features/work/fe-202401';
 import { Se_202104 } from 'features/work/se-202104';
 import { IArticle } from 'type/types';
+
+const HeroCanvas = dynamic(
+  () => import('components/canvas/hero-canvas').then((m) => m.HeroCanvas),
+  { ssr: false }
+);
 
 interface Props {
   articles: IArticle[];
@@ -29,27 +37,31 @@ const Home: NextPage<Props> = ({ articles }) => {
   return (
     <Layout>
       <Box>
-        <Grid
-          container
-          direction='column'
-          height={windowHeight}
-          alignContent='center'
-          justifyContent='center'
-        >
-          <Grid item width='80%'>
-            <Typography variant='h2' sx={{ fontWeight: 'bold' }} letterSpacing={1}>
-              Kengo Sonoda
-            </Typography>
-            <Typography variant='h3' color='text.secondary' letterSpacing={1}>
-              Let me help with your project.
-            </Typography>
-            <Typography letterSpacing={1} my={2} color='text.secondary'>
-              I&apos;m a software engineer passionate about creating exceptional digital
-              experiences. With a background in web development and a keen eye for design, I
-              specialize in crafting immersive online solutions tailored to your needs.
-            </Typography>
+        <Box position='relative' height={windowHeight} overflow='hidden'>
+          <HeroCanvas />
+          <Grid
+            container
+            direction='column'
+            height='100%'
+            alignContent='center'
+            justifyContent='center'
+            sx={{ position: 'relative', zIndex: 1 }}
+          >
+            <Grid item width='80%'>
+              <Typography variant='h2' sx={{ fontWeight: 'bold' }} letterSpacing={1}>
+                KG / Kengo Sonoda
+              </Typography>
+              <Typography variant='h3' color='text.secondary' letterSpacing={1}>
+                Let me help with your project.
+              </Typography>
+              <Typography letterSpacing={1} my={2} color='text.secondary'>
+                I&apos;m a software engineer passionate about creating exceptional digital
+                experiences. With a background in web development and a keen eye for design, I
+                specialize in crafting immersive online solutions tailored to your needs.
+              </Typography>
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
 
         {/* About */}
         <Box
@@ -93,21 +105,13 @@ const Home: NextPage<Props> = ({ articles }) => {
               <Grid item xs={12} md={4}>
                 <Box bgcolor='#fdf3c687' padding={2}>
                   <Typography mb={2}>University: Tokyo Institute of Technology</Typography>
-                  <Typography mb={2}>Location: Kagoshima, Japan</Typography>
-                  <Typography mb={2}>Current Location: Tokyo, Japan</Typography>
+                  <Typography mb={2}>Current Location: Amsterdam, the Netherlands</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} md={8}>
                 <Item>
-                  <Typography mb={2}>My Skills</Typography>
-                  <Typography mb={2}>Frontend :</Typography>
-                  <Typography mb={2} ml={2}>
-                    - TypeScript, React, Next.js
-                  </Typography>
-                  <Typography mb={2}>Backend :</Typography>
-                  <Typography mb={2} ml={2}>
-                    - Python (Django), PHP (Laravel), Node.js, C#
-                  </Typography>
+                  <Typography mb={2} fontWeight='bold'>My Skills</Typography>
+                  <HomeSkillChips />
                 </Item>
               </Grid>
             </Grid>
@@ -133,6 +137,9 @@ const Home: NextPage<Props> = ({ articles }) => {
             </Grid>
             <Grid item>
               <Grid container spacing={4}>
+                <Grid item>
+                  <Ai_202511 />
+                </Grid>
                 <Grid item>
                   <Fe_202401 />
                 </Grid>
@@ -189,13 +196,13 @@ const Home: NextPage<Props> = ({ articles }) => {
             </Grid>
             <Grid item>
               <List>
-                <RowListItem itemKey='name' itemValue='Sonoda Kengo' />
-                <RowListItem itemKey='adress' itemValue='Setagaya, Tokyo' />
-                <RowListItem itemKey='e-mail' itemValue='kengob6@gmail.com' />
+                <RowListItem itemKey='name' itemValue='Kengo Sonoda' />
+                <RowListItem itemKey='adress' itemValue='Amsterdam, the Netherlands' />
+                <RowListItem itemKey='e-mail' itemValue='surulab.inc@gmail.com' />
               </List>
               <Grid container>
                 <Grid item>
-                  <HoverIcon src='/logo/tool/github_black.svg' title='git Hub' subTitle='3 years' />
+                  <HoverIcon src='/logo/tool/github_black.svg' title='git Hub' startDate={new Date('2021-04-01')} />
                 </Grid>
                 <Grid item>
                   <Link target='_blank' href='https://github.com/sonoda-kengo'>
